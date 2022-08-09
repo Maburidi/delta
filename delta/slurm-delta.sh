@@ -3,14 +3,14 @@
 
 #SBATCH -A dasrepo_g
 #SBATCH -C gpu
-#SBATCH --nodes=2
+#SBATCH --nodes=4
 #SBATCH --job-name=test
 #SBATCH --time=00:10:00
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-task=4
 #SBATCH --cpus-per-task=32
 #SBATCH --image=registry.nersc.gov/das/delta:5.0
-#SBATCH --qos=debug
+#SBATCH --qos=regular
 
 set -x
 
@@ -65,4 +65,4 @@ for ((i = 1; i <= worker_num; i++)); do
     
 done
 # __doc_worker_ray_end__
-shifter python3 -u processor.py 
+shifter python3 -u processor.py --run_id=test_22289_GT

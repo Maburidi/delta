@@ -67,7 +67,7 @@ def main():
                         default="transport_rx")
     parser.add_argument("--run_id", type=str,
                         help="Name of database collection to store analysis results in",
-                        required=False)
+                        required=True)
 
     args = parser.parse_args()
 
